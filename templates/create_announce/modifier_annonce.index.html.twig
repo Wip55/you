@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Créer un article
+{% endblock %}
+
+{% block body %}
+<style>
+	body {
+		background: url("{{ asset('asset/images/wood.webp') }}");
+	}
+	#imageCreerAnnonce {
+    background: url("{{ asset('asset/images/Aimant.png') }}") no-repeat center;
+    background-size: 100% 100%;
+    height: 600px;
+    width: 100%;
+	position: absolute;
+		z-index: -1;
+		top: 2%;
+	box-shadow: 0 0 13px 8px #B5A898 inset;
+}
+	 .sectionFormAnnonce  {
+		 margin-top: 25%;
+		background-color: white;
+		border: 1px solid #70707080;
+		border-top-left-radius: 10%;
+		border-radius: 10%;
+
+	}
+
+	#create_announce_qualites input, #create_announce_conditions_de_vie input,  #create_announce_couleur input, #create_announce_espece input {
+		position: fixed;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#create_announce_qualites input:checked + label, #create_announce_conditions_de_vie input:checked + label, #create_announce_couleur input:checked + label, #create_announce_espece input:checked + label  {
+		border: 3px solid #7FC386;
+	}
+
+	#create_announce_qualites label, #create_announce_conditions_de_vie label,  #create_announce_couleur label, #create_announce_espece label {
+		margin: 0.5rem;
+		padding: 1rem;
+		border: 1px solid #707070;
+		color: #707070;
+		cursor: pointer;
+	}
+	label {
+		margin-top: 1rem;
+		font-weight:600;
+		color: #707070;
+	}
+	#create_announce_submit {
+		display: flex;
+		justify-content: center;
+		width: 30%;
+		margin-bottom: 100px;
+	}
+
+</style>
+
+<body>
+	
+	
+	<div id="imageCreerAnnonce">
+	</div>
+	<section class="container sectionFormAnnonce">
+		<div class="container mt-5">
+			<h2 class="text-center mt-5">Modifier votre annonce</h2>
+			
+			{{ form_start(form, { 'action': path('mon_annonce', {'id': id}) }) }}
+			
+			{{ form_end(form) }}
+		</div>
+	</section>
+</body>
+	{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<style>
+    .mesAnnonces {
+        width: 20%;
+    }
+    body {
+		background: url("{{ asset('asset/images/wood.webp') }}");
+	}
+    main {
+        background-color: white;
+
+    }
+    @media screen and (max-width:1000px) {
+
+        .mesAnnonces div {
+            display: flex !important; 
+            flex-direction: column !important;
+        }
+
+        
+    }
+</style>
+
+<h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Mon profil :</h2>
+<body class="bodyAccueil m-0">
+    <main class="container rounded pt-2 pb-5 pl-5 pr-5 mt-5">
+        <section class="container mt-5">
+            <article>
+                <div class="d-flex flex-column">
+                    <img src="{{ asset('asset/images/' ~ userImage )}}" alt="" width="100%" height="450" class="m-auto">
+                    <div class="text-center">
+                    <h3 class="mt-4">{{userPseudo}}</h3>
+                    </div>
+                    <p class="text-center mt-5">{{userDescription}}</p>
+                </div>
+            </article>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Editer mon profil</h2>
+        <section class="container sectionFormAnnonce">
+            <div class="container mt-5">
+        
+                {{ form_start(form, { 'action': path('mon_compte') }) }}
+          
+                {{ form_end(form) }}
+                </div>
+        </section>
+    </main>
+</body>
+{% endblock %}
